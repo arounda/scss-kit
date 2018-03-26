@@ -8,10 +8,10 @@
 
   justify-content: $justify;
   align-items: $align;
-  [class^="grid-col"]:first-child {
+  [class^="col-"]:first-child {
     padding-left: 0;
   }
-  [class^="grid-col"]:last-child {
+  [class^="col-"]:last-child {
     padding-right: 0;
   }
 }
