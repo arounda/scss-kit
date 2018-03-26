@@ -1,6 +1,6 @@
 @import "variables";
 
-@mixin row ($wrap: wrap, $justify: flex-start, $align: stretch, $grid-gutter: $grid-gutter) {
+@mixin row($wrap: wrap, $justify: flex-start, $align: stretch, $grid-gutter: $grid-gutter) {
   display: flex;
 
   width: 100%;
@@ -8,6 +8,12 @@
 
   justify-content: $justify;
   align-items: $align;
+  [class^="grid-col"]:first-child {
+    padding-left: 0;
+  }
+  [class^="grid-col"]:last-child {
+    padding-right: 0;
+  }
 }
 
 @mixin col-hd($colNum: $grid-column-count, $gutter: $grid-gutter) {
@@ -67,7 +73,7 @@
 }
 
 @mixin col-margin-hd($colNum: $grid-column-count) {
-    margin-left: percentage($colNum/$grid-column-count);
+  margin-left: percentage($colNum/$grid-column-count);
 }
 
 @mixin col-margin-md($colNum: $grid-column-count) {

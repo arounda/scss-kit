@@ -9,8 +9,7 @@ $container-gutter-tablet: 50px;
 $container-gutter-mobile: $grid-gutter;
 
 //page-dimensions
-$page-width-HD: 1440px;
-$content-width-HD: 1320px;
+$content-width-HD: 1680px;
 
 //fonts
 $base-font-size: 13px;
@@ -18,9 +17,9 @@ $base-line-height: 1;
 
 
 //breakpoints
-$minDesktopHD: 1680px;
+$minDesktopHD: 1440px;
 
-$maxDesktop: 1679px;
+$maxDesktop: 1440px;
 $minDesktop: 1080px;
 
 $maxTablet: 1079px;

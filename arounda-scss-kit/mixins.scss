@@ -8,17 +8,17 @@
 @mixin container ($width: $content-width-HD, $gutter: $container-gutter-desktop) {
   margin: 0 auto;
   max-width: $content-width-HD + $container-gutter-desktop*2;
-  padding-left: $container-gutter-desktop - $grid-gutter/2;
-  padding-right: $container-gutter-desktop - $grid-gutter/2;
+  padding-left: $container-gutter-desktop;
+  padding-right: $container-gutter-desktop;
 
   @media (max-width: $maxTablet) {
-    padding-left: $container-gutter-tablet - $grid-gutter/2;
-    padding-right: $container-gutter-tablet - $grid-gutter/2;
+    padding-left: $container-gutter-tablet;
+    padding-right: $container-gutter-tablet;
   }
 
   @media (max-width: $maxMobile) {
-    padding-left: $container-gutter-mobile - $grid-gutter/2;
-    padding-right: $container-gutter-mobile - $grid-gutter/2;
+    padding-left: $container-gutter-mobile;
+    padding-right: $container-gutter-mobile;
   }
 }
 
