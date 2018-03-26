@@ -1,0 +1,7 @@
+*.hot-update.json
+node_modules/
+design/
+.idea/
+.vscode/
+hot/
+firebase-debug.log

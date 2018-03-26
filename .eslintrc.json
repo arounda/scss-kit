@@ -1,0 +1,49 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "commonjs": true,
+    "es6": true,
+    "jquery": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "jsx",
+    "import",
+    "babel"
+  ],
+  "rules": {
+    "indent": [
+      "error",
+      4,
+      {"SwitchCase": 1}
+    ],
+    "linebreak-style": [
+      "error",
+      "windows"
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "jsx/uses-factory": [1, {"pragma": "JSX"}],
+    "jsx/mark-used-vars": 1,
+    "jsx/no-undef": 1,
+    "babel/new-cap": 1,
+    "babel/object-curly-spacing": 1,
+    "babel/no-invalid-this": 1,
+    "babel/semi": 1
+  }
+}

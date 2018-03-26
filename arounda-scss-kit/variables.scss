@@ -1,0 +1,30 @@
+//grid
+$grid-gutter: 30px;
+$grid-column-count: 12;
+$grid-baseline: 13px;
+
+//container
+$container-gutter-desktop: 70px;
+$container-gutter-tablet: 50px;
+$container-gutter-mobile: $grid-gutter;
+
+//page-dimensions
+$page-width-HD: 1440px;
+$content-width-HD: 1320px;
+
+//fonts
+$base-font-size: 13px;
+$base-line-height: 1;
+
+
+//breakpoints
+$minDesktopHD: 1680px;
+
+$maxDesktop: 1679px;
+$minDesktop: 1080px;
+
+$maxTablet: 1079px;
+$minTablet: 720px;
+
+$maxMobile: 719px;
+$minMobile: 420px;

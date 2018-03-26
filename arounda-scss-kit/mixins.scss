@@ -1,0 +1,41 @@
+@import "variables";
+
+@mixin base-font {
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+@mixin container ($width: $content-width-HD, $gutter: $container-gutter-desktop) {
+  margin: 0 auto;
+  max-width: $content-width-HD + $container-gutter-desktop*2;
+  padding-left: $container-gutter-desktop - $grid-gutter/2;
+  padding-right: $container-gutter-desktop - $grid-gutter/2;
+
+  @media (max-width: $maxTablet) {
+    padding-left: $container-gutter-tablet - $grid-gutter/2;
+    padding-right: $container-gutter-tablet - $grid-gutter/2;
+  }
+
+  @media (max-width: $maxMobile) {
+    padding-left: $container-gutter-mobile - $grid-gutter/2;
+    padding-right: $container-gutter-mobile - $grid-gutter/2;
+  }
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-font ($maxSize, $minSize, $maxWidth, $minWidth) {
+  font-size: $maxSize;
+  @media (min-width: $minWidth) {
+    font-size: calc(
+      #{$minSize} + #{strip-unit($maxSize - $minSize)} * ((100vw - #{$minWidth}) / #{strip-unit(
+              $maxWidth - $minWidth
+            )})
+    );
+  }
+  @media (max-width: $minWidth) {
+    font-size: $minSize;
+  }
+}

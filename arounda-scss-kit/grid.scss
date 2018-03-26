@@ -1,0 +1,89 @@
+@import "variables";
+
+@mixin row ($wrap: wrap, $justify: flex-start, $align: stretch, $grid-gutter: $grid-gutter) {
+  display: flex;
+
+  width: 100%;
+  flex-wrap: $wrap;
+
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin col-hd($colNum: $grid-column-count, $gutter: $grid-gutter) {
+  flex: none;
+
+  width: percentage($colNum/$grid-column-count);
+
+  @if ($colNum == 12) {
+    padding-left: 0;
+    padding-right: 0;
+  } @else {
+    padding-left: $gutter/2;
+    padding-right: $gutter/2;
+  }
+}
+
+@mixin col-md($colNum: $grid-column-count, $gutter: $grid-gutter) {
+  @media (max-width: $maxDesktop) {
+    width: percentage($colNum/$grid-column-count);
+
+    @if ($colNum == 12) {
+      padding-left: 0;
+      padding-right: 0;
+    } @else {
+      padding-left: $gutter/2;
+      padding-right: $gutter/2;
+    }
+  }
+}
+
+@mixin col-tab($colNum: $grid-column-count, $gutter: $grid-gutter) {
+  @media (max-width: $maxTablet) {
+    width: percentage($colNum/$grid-column-count);
+
+    @if ($colNum == 12) {
+      padding-left: 0;
+      padding-right: 0;
+    } @else {
+      padding-left: $gutter/2;
+      padding-right: $gutter/2;
+    }
+  }
+}
+
+@mixin col-mob($colNum: $grid-column-count, $gutter: $grid-gutter) {
+  @media (max-width: $maxMobile) {
+    width: percentage($colNum/$grid-column-count);
+
+    @if ($colNum == 12) {
+      padding-left: 0;
+      padding-right: 0;
+    } @else {
+      padding-left: $gutter/2;
+      padding-right: $gutter/2;
+    }
+  }
+}
+
+@mixin col-margin-hd($colNum: $grid-column-count) {
+    margin-left: percentage($colNum/$grid-column-count);
+}
+
+@mixin col-margin-md($colNum: $grid-column-count) {
+  @media (max-width: $maxDesktop) {
+    margin-left: percentage($colNum/$grid-column-count);
+  }
+}
+
+@mixin col-margin-tab($colNum: $grid-column-count) {
+  @media (max-width: $maxTablet) {
+    margin-left: percentage($colNum/$grid-column-count);
+  }
+}
+
+@mixin col-margin-mob($colNum: $grid-column-count) {
+  @media (max-width: $maxMobile) {
+    margin-left: percentage($colNum/$grid-column-count);
+  }
+}
