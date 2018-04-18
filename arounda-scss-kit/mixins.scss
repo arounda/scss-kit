@@ -7,7 +7,7 @@
 
 @mixin container ($width: $content-width-HD, $gutter: $container-gutter-desktop) {
   margin: 0 auto;
-  max-width: $content-width-HD;
+  max-width: $content-width-HD + $container-gutter-desktop*2;
   padding-left: $container-gutter-desktop;
   padding-right: $container-gutter-desktop;
 
