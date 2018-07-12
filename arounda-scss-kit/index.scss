@@ -10,6 +10,10 @@
   @include row();
 }
 
+.col {
+  @include col;
+}
+
 @for $i from 1 through $grid-column-count {
   .col-hd-#{$i} {
     @include col-hd($i);

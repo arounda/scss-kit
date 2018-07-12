@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     context: path.resolve(__dirname, "./scss"),
@@ -21,14 +22,13 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                // use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
-                use: ExtractTextPlugin.extract({use: ["css-loader", "postcss-loader", "sass-loader"]})
+                use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"]
             }
         ]
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin({
+        new MiniCssExtractPlugin({
             filename: "styles.css"
         })
     ],

@@ -1,5 +1,5 @@
 //grid
-$grid-gutter: 30px;
+$grid-gutter: 16px;
 $grid-column-count: 12;
 $grid-baseline: 13px;
 
@@ -17,13 +17,25 @@ $base-line-height: 1;
 
 
 //breakpoints
-$minDesktopHD: 1440px;
+//1680px
+$minDesktopHD: 1680px;
 
-$maxDesktop: 1439px;
-$minDesktop: 1080px;
+//1440px
+$maxDesktop: 1679px;
+$minDesktop: 1440px;
 
-$maxTablet: 1079px;
-$minTablet: 720px;
+//1280px
+$maxLaptop: 1439px;
+$minLaptop: 1025px;
 
-$maxMobile: 719px;
-$minMobile: 420px;
+//768px
+$maxTablet: 1024px;
+$minTablet: 768px;
+
+//480px
+$maxMobile: 767px;
+$minMobile: 361px;
+
+//360px
+$maxMobS: 360px;
+
