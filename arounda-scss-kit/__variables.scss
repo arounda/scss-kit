@@ -9,7 +9,7 @@ $container-gutter-tablet: 50px;
 $container-gutter-mobile: $grid-gutter;
 
 //page-dimensions
-$content-width-HD: 1680px;
+$content-width: 1680px;
 
 //fonts
 $base-font-size: 13px;
@@ -37,5 +37,30 @@ $maxMobile: 767px;
 $minMobile: 361px;
 
 //360px
-$maxMobS: 360px;
+$maxMobileSm: 360px;
 
+
+$breakpoints: (
+  "desktophd": (
+    min: $minDesktopHD
+  ),
+  "desktop": (
+    max: $maxDesktop,
+    min: $minDesktop
+  ),
+  "laptop": (
+    max: $maxLaptop,
+    min: $minLaptop
+  ),
+  "tablet": (
+    max: $maxTablet,
+    min: $minTablet
+  ),
+  "mobile": (
+    max: $maxMobile,
+    min: $minMobile
+  ),
+  "mobilesm": (
+    max: $maxMobileSm
+  )
+)

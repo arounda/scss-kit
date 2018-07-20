@@ -1,5 +1,5 @@
-@import "mixins";
-@import "grid";
+@import "__mixins";
+@import "__variables";
 @import "reset";
 
 .container {
@@ -14,74 +14,49 @@
   @include col;
 }
 
-@for $i from 1 through $grid-column-count {
-  .col-hd-#{$i} {
-    @include col-hd($i);
+//Generate classes for breakpoints
+@each $breakpoint-name, $points-map in $breakpoints {
+
+  $column-count: if(map-has-key($points-map, "column-count"), map-get($points-map, "column-count"), $grid-column-count);
+
+  @for $i from 1 through $column-count {
+    .col-#{$breakpoint-name}-#{$i} {
+      @if map-has-key($points-map, "max") {
+        @media (max-width: map-get($points-map, "max")) {
+          @include explicit-col($i, $column-count);
+        }
+      } @else {
+        @include explicit-col($i, $column-count);
+      }
+    }
+  }
+
+  @for $i from 0 through $column-count {
+    .col-margin-#{$breakpoint-name}-#{$i} {
+      @if map-has-key($points-map, "max") {
+        @media (max-width: map-get($points-map, "max")) {
+          margin-left: percentage($i/$column-count);
+        }
+      } @else {
+        margin-left: percentage($i/$column-count);
+      }
+    }
+  }
+
+  .hide-#{$breakpoint-name} {
+    @if map-has-key($points-map, "max") and map-has-key($points-map, "min") {
+      @media (min-width: map-get($points-map, "min")) and (max-width: map-get($points-map, "max")) {
+        display: none;
+      }
+    } @else if map-has-key($points-map, "max") {
+      @media (max-width: map-get($points-map, "max")) {
+        display: none;
+      }
+    } @else if map-has-key($points-map, "min") {
+      @media (min-width: map-get($points-map, "min")) {
+        display: none;
+      }
+    }
   }
 }
 
-@for $i from 1 through $grid-column-count {
-  .col-md-#{$i} {
-    @include col-md($i);
-  }
-}
-
-@for $i from 1 through $grid-column-count {
-  .col-tab-#{$i} {
-    @include col-tab($i);
-  }
-}
-
-@for $i from 1 through $grid-column-count {
-  .col-mob-#{$i} {
-    @include col-mob($i);
-  }
-}
-
-@for $i from 0 through $grid-column-count {
-  .col-margin-hd-#{$i} {
-    @include col-margin-hd($i);
-  }
-}
-
-@for $i from 0 through $grid-column-count {
-  .col-margin-md-#{$i} {
-    @include col-margin-md($i);
-  }
-}
-
-@for $i from 0 through $grid-column-count {
-  .col-margin-tab-#{$i} {
-    @include col-margin-tab($i);
-  }
-}
-
-@for $i from 0 through $grid-column-count {
-  .col-margin-mob-#{$i} {
-    @include col-margin-mob($i);
-  }
-}
-
-.hide-hd {
-  @media (min-width: $minDesktopHD) {
-    display: none;
-  }
-}
-
-.hide-md {
-  @media (max-width: $maxDesktop) {
-    display: none;
-  }
-}
-
-.hide-tab {
-  @media (max-width: $maxTablet) {
-    display: none;
-  }
-}
-
-.hide-mob {
-  @media (max-width: $maxMobile) {
-    display: none;
-  }
-}

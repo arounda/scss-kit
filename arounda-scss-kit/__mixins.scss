@@ -1,13 +1,13 @@
-@import "variables";
+@import "__variables";
 
 @mixin base-font {
   font-size: $base-font-size;
   line-height: $base-line-height;
 }
 
-@mixin container ($width: $content-width-HD, $gutter: $container-gutter-desktop) {
+@mixin container ($width: $content-width, $gutter: $container-gutter-desktop) {
   margin: 0 auto;
-  max-width: $content-width-HD + $container-gutter-desktop*2;
+  max-width: $content-width + $container-gutter-desktop*2;
   padding-left: $container-gutter-desktop;
   padding-right: $container-gutter-desktop;
 
@@ -20,6 +20,27 @@
     padding-left: $container-gutter-mobile;
     padding-right: $container-gutter-mobile;
   }
+}
+
+@mixin row($wrap: wrap, $justify: flex-start, $align: stretch, $grid-gutter: $grid-gutter) {
+  display: flex;
+  width: 100%;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin col($gutter: $grid-gutter) {
+  flex: 1;
+  padding-left: $gutter/2;
+  padding-right: $gutter/2;
+}
+
+@mixin explicit-col($colNum, $column-count: $grid-column-count, $gutter: $grid-gutter) {
+  flex: none;
+  width: percentage($colNum/$column-count);
+  padding-left: $gutter/2;
+  padding-right: $gutter/2;
 }
 
 @function strip-unit($value) {
