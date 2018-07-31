@@ -18,15 +18,16 @@
 @each $breakpoint-name, $points-map in $breakpoints {
 
   $column-count: if(map-has-key($points-map, "column-count"), map-get($points-map, "column-count"), $grid-column-count);
+  $grid-gutter: if(map-has-key($points-map, "grid-gutter"), map-get($points-map, "grid-gutter"), $grid-gutter);
 
   @for $i from 1 through $column-count {
     .col-#{$breakpoint-name}-#{$i} {
       @if map-has-key($points-map, "max") {
         @media (max-width: map-get($points-map, "max")) {
-          @include explicit-col($i, $column-count);
+          @include explicit-col($i, $column-count, $grid-gutter);
         }
       } @else {
-        @include explicit-col($i, $column-count);
+        @include explicit-col($i, $column-count, $grid-gutter);
       }
     }
   }
